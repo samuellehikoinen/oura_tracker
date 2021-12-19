@@ -7,7 +7,7 @@ from tokenCheck import *
 API_URL = 'https://api.ouraring.com/v1/'
 AUTH_TOKEN_DEFINITION = '?access_token='
 AUTH_TOKEN = ''
-DATA = []
+DATA = {}
 
 
 def getApiResponse(page):
@@ -27,9 +27,9 @@ def printDayReport():
     print('=== YOUR CURRENT OURA STATUS ===')
     print('================================')
     print()
-    last_sleep_data = DATA[1]['sleep'][len(DATA[1]['sleep'])-1]
-    last_activity_data = DATA[2]['activity'][len(DATA[2]['activity'])-1]
-    last_readiness_data = DATA[3]['readiness'][len(DATA[3]['readiness'])-1]
+    last_sleep_data = DATA['sleep']['sleep'][-1]
+    last_activity_data = DATA['activity']['activity'][-1]
+    last_readiness_data = DATA['readiness']['readiness'][-1]
 
     printSleepData(last_sleep_data)
     printActivityData(last_activity_data)
@@ -43,10 +43,10 @@ def getData():
     sleep_json = getApiResponse('sleep')
     activity_json = getApiResponse('activity')
     readiness_json = getApiResponse('readiness')
-    DATA.append(userinfo_json)
-    DATA.append(sleep_json)
-    DATA.append(activity_json)
-    DATA.append(readiness_json)
+    DATA['userinfo'] = userinfo_json
+    DATA['sleep'] = sleep_json
+    DATA['activity'] = activity_json
+    DATA['readiness'] = readiness_json
 
 
 def setAuthToken():
