@@ -27,6 +27,7 @@ def checkToken():
 
 
 def checkTokenValidity(token):
+    """Returns true if the token is valid"""
     try:
         request = f'{API_URL}userinfo{AUTH_TOKEN_DEFINITION}{token}'
         response = requests.get(request)
