@@ -2,7 +2,6 @@ import requests
 import os
 from main import API_URL
 from main import AUTH_TOKEN_DEFINITION
-from main import AUTH_TOKEN
 
 def checkToken():
     """Checks if an authentication token exists and puts it in file"""
