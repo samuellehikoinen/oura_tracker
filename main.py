@@ -23,9 +23,7 @@ def getApiResponse(page):
 
 def printDayReport():
     """Prints a report of the most recent Oura status"""
-    print('================================')
     print('=== YOUR CURRENT OURA STATUS ===')
-    print('================================')
     print()
     last_sleep_data = DATA['sleep']['sleep'][-1]
     last_activity_data = DATA['activity']['activity'][-1]

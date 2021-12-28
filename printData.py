@@ -1,6 +1,12 @@
+from datetime import datetime
+from datetime import timedelta
+YESTERDAY = (datetime.today() - timedelta(days=1)).strftime('%Y-%m-%d')
+
+
 def printSleepData(sleep_data):
     """Prints users sleep data"""
-    print('>>> Sleep details <<<')
+    summary_date = sleep_data["summary_date"]
+    print('>>> Sleep details <<<') if summary_date == YESTERDAY else print(f'>>> Sleep details [{summary_date}] <<<')
     print(f"- Sleep score: {sleep_data['score']}")
     
     bedtime_start = sleep_data['bedtime_start'].split('T')[1].split('+')[0]
@@ -18,7 +24,7 @@ def printSleepData(sleep_data):
 
 def printActivityData(activity_data):
     """Prints users activity data"""
-    print('>>> Activity details <<<')
+    print('>>> Activity details <<<') if activity_data['summary_date'] == datetime.today().strftime('%Y-%m-%d') else print(f'>>> Activity details [{activity_data["summary_date"]}] <<<')
     print(f"- Activity score: {activity_data['score']}")
     print(f"- Steps: {activity_data['steps']}")
     print(f"- Inactivity alerts: {activity_data['inactivity_alerts']}")
@@ -29,7 +35,7 @@ def printActivityData(activity_data):
 
 def printReadinessData(readiness_data):
     """Prints users readiness data"""
-    print('>>> Readiness details <<<')
+    print('>>> Readiness details <<<') if readiness_data['summary_date'] == YESTERDAY else print(f'>>> Readiness details [{readiness_data["summary_date"]}] <<<')
     print(f"- Readiness score: {readiness_data['score']}")
     print(f"- Activity balance: {readiness_data['score_activity_balance']}")
     print(f"- Recovery index: {readiness_data['score_recovery_index']}")
