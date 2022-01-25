@@ -40,6 +40,7 @@ def printReadinessData(readiness_data):
     print(f"- Activity balance: {readiness_data['score_activity_balance']}")
     print(f"- Recovery index: {readiness_data['score_recovery_index']}")
     print(f"- Sleep balance: {readiness_data['score_sleep_balance']}")
+    print(f"- Resting HRV: {readiness_data['score_hrv_balance']}")
     print()
 
 
