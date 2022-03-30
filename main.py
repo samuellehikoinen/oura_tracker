@@ -32,7 +32,6 @@ def printDayReport():
     printSleepData(last_sleep_data)
     printActivityData(last_activity_data)
     printReadinessData(last_readiness_data)
-    
 
 
 def getData():
