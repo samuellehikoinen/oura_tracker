@@ -10,6 +10,10 @@ Clone the project
 
 `git clone https://github.com/samuellehikoinen/oura_tracker.git`
 
+Install requirements from requirements.txt
+
+`pip install -r requirements.txt`
+
 Run the main.py file
 
 `python main.py`
